@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recommended Datasets</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #f0f4f8, #e1f5fe);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card-custom {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card-custom:hover {
+      transform: scale(1.02);
+    }
+    .back-btn {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <h2 class="text-center mb-4">📊 Datasets for: <span class="text-primary">"{{ interest }}"</span></h2>
+
+    <div class="row">
+      {% for item in recommendations %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card card-custom h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.Dataset_name }}</h5>
+            <p><strong>Author:</strong> {{ item.Author_name }}</p>
+            <p><strong>File Type:</strong> {{ item.Type_of_file }}</p>
+            <p><strong>Size:</strong> {{ item.size }}</p>
+            <p><strong>Medal:</strong> 🏅 {{ item.Medals }}</p>
+            <a href="{{ item.Dataset_link }}" class="btn btn-outline-primary w-100" target="_blank">🔗 View Dataset</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center">
+      <a href="/" class="btn btn-secondary back-btn">⬅️ Back to Search</a>
+    </div>
+  </div>
+
+</body>
+</html>
